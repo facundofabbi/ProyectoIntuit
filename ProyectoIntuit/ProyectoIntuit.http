@@ -1,0 +1,6 @@
+@ProyectoIntuit_HostAddress = http://localhost:5283
+
+GET {{ProyectoIntuit_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

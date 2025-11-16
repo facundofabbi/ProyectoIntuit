@@ -1,0 +1,6 @@
+2025-11-14 21:11:59.745 -03:00 [INF] Ejecutando GetAll clientes
+2025-11-14 21:12:01.582 -03:00 [INF] Se obtuvieron 5 clientes
+2025-11-14 21:13:38.334 -03:00 [INF] Buscando cliente con apellido Pérez
+2025-11-14 21:15:37.964 -03:00 [INF] Ejecutando GetAll clientes
+2025-11-14 21:15:40.209 -03:00 [INF] Se obtuvieron 5 clientes
+2025-11-14 21:15:46.636 -03:00 [INF] Buscando cliente con apellido Pérez

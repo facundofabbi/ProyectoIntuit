@@ -1,0 +1,4 @@
+2025-11-14 20:56:27.670 -03:00 [INF] Ejecutando GetAll clientes
+2025-11-14 20:56:29.539 -03:00 [INF] Se obtuvieron 5 clientes
+2025-11-14 20:58:24.882 -03:00 [INF] Ejecutando GetAll clientes
+2025-11-14 20:58:26.618 -03:00 [INF] Se obtuvieron 5 clientes
