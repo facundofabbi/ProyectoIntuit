@@ -1,0 +1,164 @@
+﻿@model IEnumerable<ClienteViewModel>
+<div class="card">
+    <div class="card-header text-center">
+        <h5>Listado de Clientes</h5>
+    </div>
+
+    <div class="card-body">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <!-- Buscador -->
+                <form asp-action="Index" method="get" class="form-inline">
+                    <div class="input-group">
+                        <input type="text" 
+                               name="q" 
+                               value="@(Context.Request.Query["q"])" 
+                               class="form-control form-control-sm" 
+                               placeholder="Buscar por nombre..." />
+
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-outline-primary btn-sm">Buscar</button>
+                            <a asp-action="Index" class="btn btn-outline-secondary btn-sm ml-1">Limpiar</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-md-6 text-right">
+                <a asp-action="Create" class="btn btn-outline-primary btn-sm">Nuevo Cliente</a>
+            </div>
+        </div>
+
+        <!-- Tabla -->
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <table class="table table-bordered" id="MyTable">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+                            <th>@Html.DisplayNameFor(model => model.Apellido)</th>
+                            <th>Fecha de Nacimiento</th>
+                            <th>@Html.DisplayNameFor(model => model.Cuit)</th>
+                            <th>@Html.DisplayNameFor(model => model.Telefono)</th>
+                            <th>@Html.DisplayNameFor(model => model.Email)</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(m => item.Nombre)</td>
+                                <td>@Html.DisplayFor(m => item.Apellido)</td>
+                                <td>@Html.DisplayFor(m => item.FechaNacimiento)</td>
+                                <td>@Html.DisplayFor(m => item.Cuit)</td>
+                                <td>@Html.DisplayFor(m => item.Telefono)</td>
+                                <td>@Html.DisplayFor(m => item.Email)</td>
+
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-warning btn-sm">Editar</a>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-info btn-sm">Detalles</a>
+                                    <a asp-action="Eliminar" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-footer text-muted text-center">
+        Crud Clientes
+    </div>
+</div>
+
+@*<div class="card">
+    <div class="card-header text-center">
+        <h5>Listado de Clientes</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <form asp-action="Index" method="get" class="form-inline">
+                    <div class="input-group">
+                        <input type="text" name="q" value="@(Request.Query["q"].ToString())" class="form-control form-control-sm" placeholder="Buscar por nombre..." />
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-outline-primary btn-sm">Buscar</button>
+                            <a asp-action="Index" class="btn btn-outline-secondary btn-sm ml-1">Limpiar</a>
+                        </div>
+                    </div>
+                </form>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a asp-action="Create" class="btn btn-outline-primary btn-sm">Nuevo Cliente</a>
+                        <hr />
+                        
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-bordered " id="MyTable">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Nombre)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Apellido)
+                                    </th>
+                                    <th>
+                                        Fecha de Nacimiento
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Cuit)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Telefono)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Email)
+                                    </th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Nombre)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Apellido)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FechaNacimiento)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Cuit)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Telefono)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Email)
+                                        </td>
+
+                                        <td>
+                                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-warning btn-sm">Editar</a>
+                                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-info btn-sm">Detalles</a>
+                                            <a asp-action="Eliminar" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer text-muted text-center">
+        Crud Clientes
+    </div>
+</div>*@
