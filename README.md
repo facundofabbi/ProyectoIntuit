@@ -71,6 +71,7 @@ Obtiene todos los clientes mediante un SP.
   -  Celular
   -  CUIT
   -  Razón Social
+    
 -Validación de formato:
   -  CUIT
   -  Email
@@ -105,6 +106,7 @@ Funcionalidades:
 - Agregar cliente
 - Editar cliente
 - Eliminar cliente
+  
 Tecnologías: HTML, CSS y JavaScript
 Se comunica directamente con la API desarrollada.
 
